@@ -4,6 +4,7 @@ resource "aws_s3_bucket" "b" {
     website {
         index_document = "index.html"
             }
+    policy = file("bucket_policy.json")
 }
 
 resource "aws_s3_bucket_object" "index" {
