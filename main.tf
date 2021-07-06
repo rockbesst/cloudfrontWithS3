@@ -41,3 +41,6 @@ resource "aws_cloudfront_distribution" "main_dist" {
     }
 
 }
+output "bucket_dns" {
+    value =aws_s3_bucket.b.bucket_domain_name  
+}
