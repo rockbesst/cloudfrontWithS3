@@ -14,7 +14,8 @@ resource "aws_cloudfront_distribution" "main_dist" {
     #         origin_protocol_policy = "http-only"
     #         origin_ssl_protocols   = ["TLSv1.2"]
     # }
-        domain_name = aws_s3_bucket.b.bucket_domain_name
+        #domain_name = aws_s3_bucket.b.bucket_domain_name
+        domain_name = aws_s3_bucket.b.website_endpoint
         origin_id = local.origin_id
     }
     default_cache_behavior {
@@ -30,6 +31,7 @@ resource "aws_cloudfront_distribution" "main_dist" {
         }
     }
     enabled = true
+    default_root_object = "index.html"
     restrictions {
         geo_restriction {
             restriction_type = "whitelist"
@@ -43,4 +45,7 @@ resource "aws_cloudfront_distribution" "main_dist" {
 }
 output "bucket_dns" {
     value =aws_s3_bucket.b.bucket_domain_name  
+}
+output "bucket_web_endpoint" {
+    value =aws_s3_bucket.b.website_endpoint  
 }
