@@ -8,7 +8,7 @@
                 "s3:GetObject"
             ],
             "Resource": [
-                "arn:aws:s3:::Bucket-Name/*"
+                "arn:aws:s3:::tf-s3-rockbesst/*"
             ]
         }
     ]
