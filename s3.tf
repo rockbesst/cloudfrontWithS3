@@ -12,10 +12,12 @@ resource "aws_s3_bucket_object" "index" {
   acl    = "public-read"
   bucket     = aws_s3_bucket.b.id
   source     = "./files/site/index.html"
+  content_type = "text/html"
 }
 resource "aws_s3_bucket_object" "image" {
   key        = "IMG_3993.jpg"
   acl    = "public-read"
   bucket     = aws_s3_bucket.b.id
   source     = "./files/site/IMG_3993.jpg"
+  content_type = "photo/jpeg"
 }
